@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { Store } from "../Context/StoreProvider";
-
-const HOST_API = 'http://localhost:8080/api';
+import HOST_API from "../API/Api";
 
 const List = () => {
   const {
