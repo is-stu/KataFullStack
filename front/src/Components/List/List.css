@@ -1,0 +1,59 @@
+.general-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.list-container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 20px;
+  margin: 20px 20px;
+  padding: 10px 10px;
+  justify-content: center;
+  align-items: center;
+  min-width: 200px;
+  min-height: 120px;
+  -webkit-box-shadow: 0px 18px 46px 0px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 0px 18px 46px 0px rgba(0, 0, 0, 0.6);
+  box-shadow: 0px 18px 46px 0px rgba(0, 0, 0, 0.6);
+}
+
+.iscomplete-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 8px 8px;
+}
+
+.iscomplete-container label {
+  margin-bottom: 5px;
+}
+
+button-container{
+    display: flex;
+}
+
+.delete-button {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  outline: none;
+}
+
+.delete-button :hover {
+  transition: color 0.2s;
+  color: red;
+}
+
+.update-button {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  outline: none;
+}
+
+.update-button:hover {
+    transition: color 0.2s;
+    color: rgb(4, 0, 255);
+}

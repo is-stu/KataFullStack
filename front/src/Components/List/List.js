@@ -1,6 +1,9 @@
 import React, { useContext, useEffect } from 'react';
-import { Store } from "../Context/StoreProvider";
-import HOST_API from "../API/Api";
+import { Store } from '../Context/StoreProvider';
+import HOST_API from '../API/Api';
+import './List.css';
+import DeleteIcon from '@material-ui/icons/Delete';
+import UpdateIcon from '@material-ui/icons/Update';
 
 const List = () => {
   const {
@@ -52,38 +55,36 @@ const List = () => {
     textDecoration: 'line-through',
   };
   return (
-    <div>
-      <table>
-        <thead>
-          <tr>
-            <td>ID</td>
-            <td>Tarea</td>
-            <td>¿Completado?</td>
-          </tr>
-        </thead>
-        <tbody>
-          {currentList.map((todo) => {
-            return (
-              <tr key={todo.id} style={todo.completed ? decorationDone : {}}>
-                <td>{todo.id}</td>
-                <td>{todo.name}</td>
-                <td>
-                  <input
-                    type='checkbox'
-                    defaultChecked={todo.completed}
-                    onChange={(event) => onChange(event, todo)}></input>
-                </td>
-                <td>
-                  <button onClick={() => onDelete(todo.id)}>Eliminar</button>
-                </td>
-                <td>
-                  <button onClick={() => onEdit(todo)}>Editar</button>
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+    <div className='general-container'>
+      {currentList.map((todo) => {
+        return (
+          <div key={todo.id} className='list-container'>
+            <p style={todo.completed ? decorationDone : {}}>
+              {todo.id} {todo.name}
+            </p>
+
+            <div className='iscomplete-container'>
+              <label htmlFor='check'>Is Completed ?</label>
+              <input
+                type='checkbox'
+                defaultChecked={todo.completed}
+                name='check'
+                onChange={(event) => onChange(event, todo)}
+              />
+            </div>
+            <div className ='button-container'>
+              <button
+                className='delete-button'
+                onClick={() => onDelete(todo.id)}>
+                <DeleteIcon />
+              </button>
+              <button className='update-button' onClick={() => onEdit(todo)}>
+                <UpdateIcon />
+              </button>
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 };

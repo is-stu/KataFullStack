@@ -1,8 +1,7 @@
 import React, { useContext, useRef, useState } from 'react';
 import { Store } from '../Context/StoreProvider';
-import HOST_API from "../API/Api";
-
-
+import HOST_API from '../API/Api';
+import './Form.css';
 
 const Form = () => {
   const formRef = useRef(null);
@@ -74,7 +73,7 @@ const Form = () => {
   };
 
   return (
-    <form ref={formRef}>
+    <form ref={formRef} className='form_container'>
       <input
         type='text'
         name='name'
