@@ -2,6 +2,7 @@ import React, { useContext, useRef, useState } from 'react';
 import { Store } from '../Context/StoreProvider';
 import HOST_API from '../API/Api';
 import './Form.css';
+import Swal from 'sweetalert2'
 
 const Form = () => {
   const formRef = useRef(null);
@@ -37,10 +38,18 @@ const Form = () => {
             formRef.current.reset();
           });
       } else {
-        alert('Este campo debe de tener mas de 3 caracteres');
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Este campo debe de tener mas de 3 caracteres!',
+        })
       }
     } else {
-      alert('Este campo no puede estar vacio');
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Este campo no puede estar vacio!',
+      })
     }
   };
 
